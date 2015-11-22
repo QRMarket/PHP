@@ -3,7 +3,7 @@
     <form method="post">
         <div class="form-group">
             <label for="sel1">Şehir listesi:</label>
-            <select class="form-control" id="sel1" name="selectCity" onchange="form.submit()">
+            <select class="form-control" id="sel1" name="selectCity" onclick="form.submit()">
                 {% for city in cityList %}
                     <option value="{{ city }}">{{ city }}</option>
                 {% endfor %}
@@ -13,29 +13,39 @@
 
 
     {% if addressList is not null %}
-        <form method="post">
+        <form id="goToMarketHome" method="post" action="">
             <div class="form-group">
                 <label for="sel1">Şehir listesi:</label>
-                <select class="form-control" id="selDistributer" name="selectDistributer" onchange="form.submit()">
+                <select class="form-control" id="selectAddressId" name="selectDistributer" onchange="goToNextPage()">
                     {% for address in addressList %}
-                        <option value="{{ address.id }}">{{ address.borough }} -- {{ address.locality }}</option>
+                        <option value="{{ address.id }}">{{ address.id }} -- {{ address.borough }} -- {{ address.locality }}</option>
                     {% endfor %}
                 </select>
             </div>
         </form>
     {% endif %}
 
+
     {% if distributerList is not null %}
-    <form method="post">
         <div class="form-group">
-            <label for="sel1">Şehir listesi:</label>
-            <select class="form-control" id="getDistributer" name="selectDistributer" onchange="form.submit()">
+            <ul class="list-group">
                 {% for distributer in distributerList %}
-                <option value="{{ address.id }}">{{ distributer.id }} -- {{ distributer.openHourAt }}</option>
+                    <li class="list-group-item"> ... <a href="index.php?marketId={{ distributer.id }}">{{ distributer.id }}</a> </li>
                 {% endfor %}
-            </select>
+            </ul>
         </div>
-    </form>
     {% endif %}
 
 {% include 'footer.html' %}
+
+<script>
+
+        function goToNextPage(){
+            var e = document.getElementById("selectAddressId");
+            var value = e.options[e.selectedIndex].value;
+
+            document.getElementById("goToMarketHome").setAttribute("action", "start.php?distributerAddress="+value);
+            document.getElementById("goToMarketHome").submit();
+        }
+
+</script>
