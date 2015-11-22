@@ -1,8 +1,8 @@
 <?php 
-include './controller/Home.class.php';
+    include './controller/Home.class.php';
 
-@ini_set('display_errors', 0);
+    @ini_set('display_errors', 1);
 
-\controller\Home::index();
+    echo \controller\Home::index();
 ?>
 

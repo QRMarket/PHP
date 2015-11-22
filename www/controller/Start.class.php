@@ -21,10 +21,10 @@ class Start{
             $addressList = \model\GuppyFunctions::searchAddress($selectedCity);
         }
 
-//        if (isset($_POST['selectDistributer'])){
-//            $selectedAddress = $_POST['selectDistributer'];
-//            $distributerList = \model\GuppyFunctions::getDistributerList($selectedAddress);
-//        }
+        if (isset($_GET['distributerAddress'])){
+            $selectedAddress = $_GET['distributerAddress'];
+            $distributerList = \model\GuppyFunctions::getDistributerList($selectedAddress);
+        }
 
         $result = array('cityList' => $cityList,
                         'addressList' => $addressList,
