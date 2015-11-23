@@ -24,22 +24,39 @@
         var $locality;
 
 
-        public static function getAddress($id){
+        public static function getAddress($id)
+        {
+            Result::initializeStaticObjects();
+            $params['do'] = 'getAddressById';
+            $params['id'] = $id;
+            $curlResult = Curl::get_data( Config::JSON_URL . Address::SERVICE,
+                                            http_build_query($params),
+                                            ContentType::header_content_urlencoded);
 
-                Result::initializeStaticObjects();
+            return json_encode($curlResult);
+        }
 
-                $params['do'] = 'getAddressById';
-                $params['id'] = $id;
-                $curlResult = Curl::get_data( Config::JSON_URL . Address::SERVICE,
-                                                http_build_query($params),
-                                                ContentType::header_content_urlencoded);
+        public static function getCityList()
+        {
+            Result::initializeStaticObjects();
+            $params['do'] = 'getCityList';
+            $curlResult = Curl::get_data(Config::JSON_URL . 'AddressServlet',
+                                            http_build_query($params),
+                                            ContentType::header_content_urlencoded);
 
-                // -- check operation is success
-                // -- 1 -- if success then create Address object and return that object
-                // -- 2 -- else return null
-                echo json_encode($curlResult);
+            return json_encode($curlResult);
+        }
 
-    //        return json_decode($curlResult)->content;
+        public static function searchAddress($cityName)
+        {
+            Result::initializeStaticObjects();
+            $params['do'] = 'searchAddress';
+            $params['city'] = $cityName;
+            $curlResult = Curl::get_data(Config::JSON_URL . 'AddressServlet',
+                                            http_build_query($params),
+                                            ContentType::header_content_urlencoded);
+
+            return json_encode($curlResult);
         }
 
 }
