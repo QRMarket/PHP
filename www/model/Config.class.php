@@ -5,8 +5,8 @@ class Config
 {
 
     const ROOT_PATH = 'projects/GuppyWebFront/';
-    const JSON_URL = 'http://192.168.35.123:8080/QR_Market_Web/';
-//    const JSON_URL = 'http://46.101.168.27:8080/QR_Market_Web/';
+//    const JSON_URL = 'http://192.168.35.123:8080/QR_Market_Web/';
+    const JSON_URL = 'http://46.101.168.27:8080/QR_Market_Web/';
 
     public static function getTwig()
     {
