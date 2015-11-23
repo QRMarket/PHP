@@ -1,7 +1,5 @@
 <?php
 namespace model;
-use model\Config;
-use model\Functions;
 include './model/Curl.class.php';
 
 class GuppyFunctions
