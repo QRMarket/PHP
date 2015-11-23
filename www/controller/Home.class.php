@@ -11,6 +11,7 @@ class Home{
     public static function index(){
 
             $twig = Config::getTwig();
+            $sectionList = null;
 
             if (isset($_GET['marketId'])){
                 $marketId = $_GET['marketId'];
