@@ -1,5 +1,5 @@
 <?php
-
+namespace model;
     /********************** PAGE DETAILS ********************/
     /* @Programmer  : Kemal Sami KARACA
      * @Maintainer  : Guppy Org.
@@ -7,8 +7,8 @@
      * @Modified    :
      * @Description : This is the API result object
      ********************************************************/
-
-    require_once("ResourceBundle.php");
+use model\ResourceBundle;
+    //require_once("ResourceBundle.class.php");
     class Result
     {
         public static $SUCCESS;
@@ -58,12 +58,12 @@
          ************* INITIALIZE ******************
          ******************************************/
         static function initializeStaticObjects(){
-            Result::$SUCCESS                    = Result::$SUCCESS ? Result::$SUCCESS->setContent(null) : Result::constructor_default(ResultGuppy001Code , ResultGuppy001Status);
-            Result::$SUCCESS_EMPTY              = Result::$SUCCESS_EMPTY ? Result::$SUCCESS_EMPTY->setContent(null) : Result::constructor_default(ResultGuppy010Code , ResultGuppy010Status);
-            Result::$FAILURE_AUTH               = Result::$FAILURE_AUTH ? Result::$FAILURE_AUTH->setContent(null) : Result::constructor_default(ResultGuppy101Code , ResultGuppy101Status);
-            Result::$FAILURE_PARAM_MISMATCH     = Result::$FAILURE_PARAM_MISMATCH ? Result::$FAILURE_PARAM_MISMATCH->setContent(null) : Result::constructor_default(ResultGuppy511Code , ResultGuppy511Status);
-            Result::$FAILURE_EXCEPTION          = Result::$FAILURE_EXCEPTION ? Result::$FAILURE_EXCEPTION->setContent(null) : Result::constructor_default(ResultGuppy521Code , ResultGuppy521Status);
-            Result::$FAILURE_PERMISSION         = Result::$FAILURE_PERMISSION ? Result::$FAILURE_PERMISSION->setContent(null) : Result::constructor_default(ResultGuppy531Code , ResultGuppy531Status);
+            Result::$SUCCESS                    = Result::$SUCCESS ? Result::$SUCCESS->setContent(null) : Result::constructor_default(ResourceBundle::ResultGuppy001Code , ResourceBundle::ResultGuppy001Status);
+            Result::$SUCCESS_EMPTY              = Result::$SUCCESS_EMPTY ? Result::$SUCCESS_EMPTY->setContent(null) : Result::constructor_default(ResourceBundle::ResultGuppy010Code , ResourceBundle::ResultGuppy010Status);
+            Result::$FAILURE_AUTH               = Result::$FAILURE_AUTH ? Result::$FAILURE_AUTH->setContent(null) : Result::constructor_default(ResourceBundle::ResultGuppy101Code , ResourceBundle::ResultGuppy101Status);
+            Result::$FAILURE_PARAM_MISMATCH     = Result::$FAILURE_PARAM_MISMATCH ? Result::$FAILURE_PARAM_MISMATCH->setContent(null) : Result::constructor_default(ResourceBundle::ResultGuppy511Code , ResourceBundle::ResultGuppy511Status);
+            Result::$FAILURE_EXCEPTION          = Result::$FAILURE_EXCEPTION ? Result::$FAILURE_EXCEPTION->setContent(null) : Result::constructor_default(ResourceBundle::ResultGuppy521Code , ResourceBundle::ResultGuppy521Status);
+            Result::$FAILURE_PERMISSION         = Result::$FAILURE_PERMISSION ? Result::$FAILURE_PERMISSION->setContent(null) : Result::constructor_default(ResourceBundle::ResultGuppy531Code , ResourceBundle::ResultGuppy531Status);
         }
 
 

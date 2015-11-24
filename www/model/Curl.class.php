@@ -1,5 +1,5 @@
 <?php
-
+namespace model;
     /********************** PAGE DETAILS ********************/
     /* @Programmer  : Guppy Org.
      * @Maintainer  : Guppy Org.
@@ -8,9 +8,8 @@
      * @Description : These are the RESULT Constants
      ********************************************************/
 
-    namespace model;
-    use Result;
-    include 'Result.php';
+    use model\Result;
+   // include 'Result.class.php';
 
     class Curl{
 

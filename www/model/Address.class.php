@@ -1,5 +1,6 @@
 <?php
 
+namespace model;
     /********************** PAGE DETAILS ********************/
     /* @Programmer  : Guppy Org.
      * @Maintainer  : Guppy Org.
@@ -8,10 +9,9 @@
      * @Description : This is the API result object
      ********************************************************/
 
-    namespace model;
     //include './util/constants/ContentType.class.php';
     use util\constants\ContentType;
-    use Result;
+    use model\Result;
 
 
     class Address{

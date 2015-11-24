@@ -1,13 +1,9 @@
 <?php
 namespace controller;
 use model\Config;
-use model\Functions;
 error_reporting(E_ALL);
 
-//include './model/Config.class.php';
-//include './model/Functions.class.php';
-
-class Home{
+class ProductList{
     
     public static function index(){
 
