@@ -9,7 +9,7 @@
      ********************************************************/
 
     namespace model;
-    include './util/constants/ContentType.php';
+    include './util/constants/ContentType.class.php';
     use util\constants\ContentType;
     use Result;
 

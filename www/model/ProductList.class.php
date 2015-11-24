@@ -9,14 +9,14 @@
      ********************************************************/
 
     namespace model;
-    //include './util/constants/ContentType.class.php';
+    include './util/constants/ContentType.class.php';
     use util\constants\ContentType;
     use Result;
 
 
-    class Address{
+    class ProductList{
 
-        const SERVICE = 'AddressServlet';
+        const SERVICE = 'ProductServlet';
 
         var $id;
         var $city;
@@ -24,7 +24,7 @@
         var $locality;
 
 
-        public static function getAddress($id)
+        public static function getProduct($id)
         {
             Result::initializeStaticObjects();
             $params['do'] = 'getAddressById';
@@ -36,13 +36,24 @@
             return json_encode($curlResult);
         }
 
-        public static function getCityList()
+        public static function getProductList($distributerId)
         {
             Result::initializeStaticObjects();
-            $params['do'] = 'getCityList';
-            $curlResult = Curl::get_data(Config::JSON_URL . 'AddressServlet',
+            $params = array('do'=>'getProductList', 'distributerId'=>$distributerId);
+            $curlResult = Curl::get_data(Config::JSON_URL .ProductList::SERVICE ,
                                             http_build_query($params),
                                             ContentType::header_content_urlencoded);
+
+            return json_encode($curlResult);
+        }
+
+        public static function getProductListBySection($sectionId)
+        {
+            Result::initializeStaticObjects();
+            $params = array('do'=>'getProductList', 'sectionId'=>$sectionId);
+            $curlResult = Curl::get_data(Config::JSON_URL . ProductList::SERVICE ,
+                http_build_query($params),
+                ContentType::header_content_urlencoded);
 
             return json_encode($curlResult);
         }

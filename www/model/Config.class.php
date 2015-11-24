@@ -1,11 +1,19 @@
 <?php
 namespace model;
 
-class Config
-{
+class Config implements GlobalConfig{
 
-    const ROOT_PATH = 'projects/GuppyWebFront/';
-//    const JSON_URL = 'http://192.168.35.123:8080/QR_Market_Web/';
+    /**
+     * projenin dosya ana dizini
+     *
+     * @var string
+     */
+    const ROOT_PATH = '/Users/kemalcagri/Desktop/Kemal/Guppy/PHP/trunk/www';
+    /**
+     * json datalarının döndüğü url
+     *
+     * @var string
+     */
     const JSON_URL = 'http://46.101.168.27:8080/QR_Market_Web/';
 
     public static function getTwig()
