@@ -1,17 +1,27 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alirzayev
- * Date: 24.11.15
- * Time: 03:14
- */
+/********************** PAGE DETAILS ********************/
+/* @Programmer  : Guppy Org.
+ * @Maintainer  : Guppy Org.
+ * @Created     : 24.11.15
+ * @Modified    :
+ * @Description : This is the API result object
+ ********************************************************/
 
-include './model/Curl.class.php';
-include './model/Config.class.php';
-include './model/Distributer.class.php';
+require_once 'model/ClassAutoloader.class.php';
+require_once 'model/GlobalConfig.class.php';
+require_once 'model/Config.class.php';
+require_once 'model/Functions.class.php';
+require_once 'model/Distributer.class.php';
 
-$distributer = new \model\Distributer();
-$distributer = $distributer->getDistributerList($_POST['addressId']);
+$CLASS =& \model\ClassAutoloader::getInstance();
+
+###############################################################
+spl_autoload_register ('\model\ClassAutoloader::load');
+###############################################################
+
+
+$distributer = \model\Distributer::getDistributerList($_POST['addressId']);
 
 header('Content-Type: application/json');
 echo json_encode($distributer);
+
