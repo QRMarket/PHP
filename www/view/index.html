@@ -290,10 +290,11 @@
         });
     });
 
+
     $(document).on('change', '#indexCityList', function() {
         $.post( "address.php", { do: "search", city: $("#indexCityList option:selected" ).text() })
                 .done(function( data ) {
-
+                    console.log(data);
                     var jsonObj = jQuery.parseJSON( data );
                     var list = jsonObj['content'];
 

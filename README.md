@@ -10,3 +10,7 @@
 6. Yükleme işlemi tamamlandıktan sonra konfigurasyon dosyalarında belirtdiğimiz host name'ni lokalde tanımlamamız gerekli. Bunun için etc/hosts içerisine 192.168.56.100 local.guppy.com.tr eklenir.
 7. Proje phpStormda açılır 
     
+# MODEL / USE
+1. Bazı temel olarak kullanılabilecek fonksiyonel model class ları eklendi. 
+2. 'include' kullanımına gerek kalmadı use ile import yapabilmek için ClassAutoloader.class.php dosyası eklendi. 
+3. Config.class.php altındaki ROOT_PATH i kendinize göre tanımlayınız. Gerekmedikçe bu php dosyasını commitlemeyiniz.

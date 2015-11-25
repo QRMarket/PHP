@@ -3,11 +3,12 @@
 namespace controller;
 use model\Config;
 use model\Address;
+use model\Functions;
 error_reporting(E_ALL);
 
-include './model/Config.class.php';
-include './model/Address.class.php';
-include './model/Functions.class.php';
+/*include './model/Config.class.php';
+include './model/Dene.class.php';
+include './model/Functions.class.php';*/
 
 class Index{
     
@@ -15,8 +16,8 @@ class Index{
 
         // -- ** -- GET Twig & city list
             $twig = Config::getTwig();
-            $cityList = \model\Address::getCityList();
-
+            $cityList = Address::getCityList();
+            //die($_SERVER['REQUEST_URI']);
         // -- ** -- Check $cityList content is exist with isset method
             $result = array('cityList' => json_decode($cityList)->content);
 

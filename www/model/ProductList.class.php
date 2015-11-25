@@ -1,6 +1,5 @@
 <?php
 
-namespace model;
     /********************** PAGE DETAILS ********************/
     /* @Programmer  : Guppy Org.
      * @Maintainer  : Guppy Org.
@@ -9,14 +8,15 @@ namespace model;
      * @Description : This is the API result object
      ********************************************************/
 
-    //include './util/constants/ContentType.class.php';
+    namespace model;
+    include './util/constants/ContentType.class.php';
     use util\constants\ContentType;
-    use model\Result;
+    use Result;
 
 
-    class Address{
+    class ProductList{
 
-        const SERVICE = 'AddressServlet';
+        const SERVICE = 'ProductServlet';
 
         var $id;
         var $city;
@@ -24,7 +24,7 @@ namespace model;
         var $locality;
 
 
-        public static function getAddress($id)
+        public static function getProduct($id)
         {
             Result::initializeStaticObjects();
             $params['do'] = 'getAddressById';
@@ -36,13 +36,24 @@ namespace model;
             return json_encode($curlResult);
         }
 
-        public static function getCityList()
+        public static function getProductList($distributerId)
         {
             Result::initializeStaticObjects();
-            $params['do'] = 'getCityList';
-            $curlResult = Curl::get_data(Config::JSON_URL . 'AddressServlet',
+            $params = array('do'=>'getProductList', 'distributerId'=>$distributerId);
+            $curlResult = Curl::get_data(Config::JSON_URL .ProductList::SERVICE ,
                                             http_build_query($params),
                                             ContentType::header_content_urlencoded);
+
+            return json_encode($curlResult);
+        }
+
+        public static function getProductListBySection($sectionId)
+        {
+            Result::initializeStaticObjects();
+            $params = array('do'=>'getProductList', 'sectionId'=>$sectionId);
+            $curlResult = Curl::get_data(Config::JSON_URL . ProductList::SERVICE ,
+                http_build_query($params),
+                ContentType::header_content_urlencoded);
 
             return json_encode($curlResult);
         }

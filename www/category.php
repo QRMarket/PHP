@@ -11,7 +11,7 @@ require_once 'model/ClassAutoloader.class.php';
 require_once 'model/GlobalConfig.class.php';
 require_once 'model/Config.class.php';
 require_once 'model/Functions.class.php';
-require_once 'model/Distributer.class.php';
+require_once 'model/Category.class.php';
 
 $CLASS =& \model\ClassAutoloader::getInstance();
 
@@ -20,8 +20,9 @@ spl_autoload_register ('\model\ClassAutoloader::load');
 ###############################################################
 
 
-$distributer = \model\Distributer::getDistributerList($_POST['addressId']);
+$category = \model\Category::getCategoryList();
+
 
 header('Content-Type: application/json');
-echo json_encode($distributer);
+echo json_encode($category);
 

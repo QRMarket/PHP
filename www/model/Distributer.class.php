@@ -9,16 +9,14 @@
      ********************************************************/
 
     namespace model;
-    include './util/constants/ContentType.php';
     use util\constants\ContentType;
-    use Result;
+    use model\Result;
 
 
     class Distributer{
 
         const SERVICE = 'DistributerServlet';
 
-        var $id;
 
         public static function getDistributerList($addressId)
         {
