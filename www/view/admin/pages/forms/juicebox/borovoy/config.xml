@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juiceboxgallery
+    galleryTitle="Kazturkom Gallery"
+    backgroundColor="#5aaebe"
+    >
+    <image imageURL="images/Borovoy/1.JPG"></image>
+    <image imageURL="images/Borovoy/2.JPG"></image>
+    <image imageURL="images/Borovoy/3.JPG"></image>
+    <image imageURL="images/Borovoy/4.JPG"></image>
+    <image imageURL="images/Borovoy/5.JPG"></image>
+    <image imageURL="images/Borovoy/6.JPG"></image>
+    <image imageURL="images/Borovoy/7.JPG"></image>
+    <image imageURL="images/Borovoy/8.JPG"></image>
+    <image imageURL="images/Borovoy/9.JPG"></image>
+    <image imageURL="images/Borovoy/10.JPG"></image>
+    <image imageURL="images/Borovoy/11.JPG"></image>
+    <image imageURL="images/Borovoy/12.JPG"></image>
+    <image imageURL="images/Borovoy/13.JPG"></image>
+    <image imageURL="images/Borovoy/14.JPG"></image>
+    <image imageURL="images/Borovoy/15.JPG"></image>
+    <image imageURL="images/Borovoy/16.JPG"></image>
+    <image imageURL="images/Borovoy/17.JPG"></image>
+    <image imageURL="images/Borovoy/18.JPG"></image>
+    <image imageURL="images/Borovoy/19.JPG"></image>
+    <image imageURL="images/Borovoy/20.JPG"></image>
+    <image imageURL="images/Borovoy/21.JPG"></image>
+    <image imageURL="images/Borovoy/22.JPG"></image>
+    <image imageURL="images/Borovoy/23.JPG"></image>
+    <image imageURL="images/Borovoy/24.JPG"></image>
+</juiceboxgallery>

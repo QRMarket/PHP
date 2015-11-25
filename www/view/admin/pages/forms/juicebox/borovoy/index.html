@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Казтурком</title>
+<link rel="stylesheet" href="../mbcsmbmcp.css" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	background-color: #5AAEBE;
+}
+#text1 {
+position:absolute;
+left: 50%;
+margin-left: -122px;
+}
+#footer {
+position:absolute;
+margin-top: 500px;
+left: 50%;
+margin-left: -450px;
+z-index:900;
+}
+</style>
+<!--стиль ротатора слайд шоу -->
+<style type="text/css">
+/* rotator in-page placement */
+    div.rotator {
+	position: absolute;
+	height:345px;
+	left: 50%;
+	margin-left: -530px;
+	display: none;
+}
+/* rotator css */
+	div.rotator ul li {
+	float:left;
+	position:absolute;
+	list-style: none;
+}
+/* rotator image style */	
+	div.rotator ul li img {
+	border:1px solid #ccc;
+	padding: 4px;
+	background: #FFF;
+}
+    div.rotator ul li.show {
+	z-index:500
+}
+</style>
+<!--конец стиля ротатора слайд шоу -->
+<!-- ссылка на библиотеку JS -->
+<script type="text/javascript" src="../slaid1/jquery-1.3.2.min.js"></script>
+<!-- ссылка на библиотеку JS -->
+<!-- движок ротатора начало -->
+<script type="text/javascript">
+function theRotator() {
+	//Set the opacity of all images to 0
+	$('div.rotator ul li').css({opacity: 0.0});
+	//Get the first image and display it (gets set to full opacity)
+	$('div.rotator ul li:first').css({opacity: 1.0});
+	//Call the rotator function to run the slideshow, 6000 = change to next image after 6 seconds
+	setInterval('rotate()',6000);
+}
+function rotate() {	
+	//Get the first image
+	var current = ($('div.rotator ul li.show')?  $('div.rotator ul li.show') : $('div.rotator ul li:first'));
+    if ( current.length == 0 ) current = $('div.rotator ul li:first');
+	//Get next image, when it reaches the end, rotate it back to the first image
+	var next = ((current.next().length) ? ((current.next().hasClass('show')) ? $('div.rotator ul li:first') :current.next()) : $('div.rotator ul li:first'));
+	//Un-comment the 3 lines below to get the images in random order
+	//var sibs = current.siblings();
+    //var rndNum = Math.floor(Math.random() * sibs.length );
+    //var next = $( sibs[ rndNum ] );
+	//Set the fade in effect for the next image, the show class has higher z-index
+	next.css({opacity: 0.0})
+	.addClass('show')
+	.animate({opacity: 1.0}, 1000);
+	//Hide the current image
+	current.animate({opacity: 0.0}, 1000)
+	.removeClass('show');
+};
+$(document).ready(function() {		
+	//Load the slideshow
+	theRotator();
+	$('div.rotator').fadeIn(1000);
+    $('div.rotator ul li').fadeIn(1000); // tweek for IE
+});
+</script>
+<!-- движок ротатора -->
+</head>
+<body>
+<div align="center"><img src="../header/1.png" alt="" /></div>
+<!-- начало верхнего меню -->
+<div align="center">
+<ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu" style="width: 982px; height: 38px;">
+  <li class="topitem spaced_li"><div class="buttonbg" style="width: 81px;"><a href="index.html" target="_self">Главная</a></div>
+  </li>
+  <li class="topitem spaced_li"><div class="buttonbg" style="width: 157px;"><a href="index2.html" target="_self">Фасадные работы</a></div>
+  </li>
+  <li class="topitem spaced_li">
+    <div class="buttonbg" style="width: 163px;"><a href="index3.html" target="_self">Внутренняя отделка</a></div>
+  </li>
+  <li class="topitem spaced_li"><div class="buttonbg"><a href="index4.html" target="_self">Теплоизоляция</a></div>
+  </li>
+  <li class="topitem spaced_li"><div class="buttonbg"><a href="index5.html" target="_self">Гидроизоляция</a></div>
+  </li>
+  <li class="topitem spaced_li"><div class="buttonbg" style="width: 133px;"><a href="index6.html" target="_self">Звукоизоляция</a></div>
+  </li>
+  <li class="topitem"><div class="buttonbg" style="width: 168px;"><a href="contacts.html" target="_self">Письмо в Казтурком</a></div>
+  </li>
+</ul>
+<!-- Menus will work without this javascript file. It is used only for extra
+     effects, improved usability and compatibility with very old web browsers. -->
+<script type="text/javascript" src="../mbjsmbmcp.js"></script>
+</div>
+<!-- конец верхнего меню -->
+<!-- ссылки на слайд шоу -->
+<!--START JUICEBOX EMBED-->
+	<script src="jbcore/juicebox.js"></script>
+	<script>
+	new juicebox({
+		containerId: 'juicebox-container'
+	});
+	</script>
+	<a href="../astana" style="color: white;">Villa Astana</a>&nbsp;&nbsp;&nbsp;<a href="../almati" style="color: white;">Villa Almati</a>&nbsp;&nbsp;&nbsp;<a href="../hailey" style="color: white;">Hailey Buty</a>&nbsp;&nbsp;&nbsp;<a href="../borovoy" style="color: white;">Borovoy Otel Rixos</a>
+	<div id="juicebox-container"></div>
+
+<div id="footer">
+<img src="../text/footer.jpg" border="0" onMouseOver="this.src='../text/footerbig.jpg';"
+          onMouseOut="this.src='../text/footer.jpg';"/>
+</div>
+</body>
+</html>
