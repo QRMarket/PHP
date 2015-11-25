@@ -52,7 +52,7 @@ class ClassAutoloader
      */
     public static function load($className){
         $file = Config::ROOT_PATH.'/'.str_replace('_','-',str_replace('\\','/',$className)).'.class.php';
-        
+        //echo $file.'<br>';
         if (!in_array($file, self::$includeFileArray) && file_exists ( $file )) {
             self::$includeFileArray[] = $file;
             require_once $file;
