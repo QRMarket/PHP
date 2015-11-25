@@ -15,11 +15,11 @@
     //register_shutdown_function('shutdown');
     //\model\Controller::setPage();
 
-    require_once './controller/Index.class.php';
+    require_once './controller/client/Index.class.php';
 
     @ini_set('display_errors', 1);
 
-    echo \controller\Index::index();
+    echo \controller\client\Index::index();
 
 ?>
 

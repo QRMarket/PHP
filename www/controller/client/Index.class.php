@@ -1,6 +1,6 @@
 <?php
 
-namespace controller;
+namespace controller\client;
 use model\Config;
 use model\Address;
 use model\Functions;
