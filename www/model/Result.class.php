@@ -90,6 +90,11 @@ use model\ResourceBundle;
                 return false;
             }
         }
+        function isSuccess(){
+            return (strcmp($this->resultCode, ResourceBundle::ResultGuppy001Code)==0);
+        }
+
+
 
 
         /**
@@ -116,4 +121,5 @@ use model\ResourceBundle;
         }
     }
 
+    Result::initializeStaticObjects();
 ?>

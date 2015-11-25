@@ -26,7 +26,6 @@ namespace model;
 
         public static function getAddress($id)
         {
-            Result::initializeStaticObjects();
             $params['do'] = 'getAddressById';
             $params['id'] = $id;
             $curlResult = Curl::get_data( Config::JSON_URL . Address::SERVICE,
@@ -38,7 +37,7 @@ namespace model;
 
         public static function getCityList()
         {
-            Result::initializeStaticObjects();
+
             $params['do'] = 'getCityList';
             $curlResult = Curl::get_data(Config::JSON_URL . 'AddressServlet',
                                             http_build_query($params),
@@ -49,7 +48,6 @@ namespace model;
 
         public static function searchAddress($cityName)
         {
-            Result::initializeStaticObjects();
             $params['do'] = 'searchAddress';
             $params['city'] = $cityName;
             $curlResult = Curl::get_data(Config::JSON_URL . 'AddressServlet',

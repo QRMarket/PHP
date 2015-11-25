@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- DİKKAT!
+     Burada base url verilir. Proje path'ine göre farklılık gösterebilir.
+     Base url olarak içinde bulunduğumuz dosyanın real path'i verilir.
+     -->
+    <base href="/PHP/www/view/admin/pages/examples/">
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AdminLTE 2 | Log in</title>
@@ -31,7 +38,7 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
-        <form action="../../Controllers/php/login.php" method="post">
+        <form action="../../../../login.php" method="post">
           <div class="form-group has-feedback">
             <input name="mail" type="text" class="form-control" placeholder="Email">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

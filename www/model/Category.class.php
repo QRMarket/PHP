@@ -21,7 +21,6 @@ class Category{
 
     public static function getCategoryList()
     {
-        Result::initializeStaticObjects();
         $params['do'] = 'getSections';
         $curlResult = Curl::get_data( Config::JSON_URL . Category::SERVICE,
             http_build_query($params),
@@ -34,7 +33,6 @@ class Category{
 
     public static function getCategoryTree()
     {
-        Result::initializeStaticObjects();
         $params['do'] = 'getSections';
         $params['listType'] = 'tree';
         $params['limit'] = '3';
@@ -49,7 +47,6 @@ class Category{
 
     public static function getSubCategoryById($parentId)
     {
-        Result::initializeStaticObjects();
         $params['do'] = 'getSections';
         $params['parentId'] = $parentId;
         $curlResult = Curl::get_data( Config::JSON_URL . Category::SERVICE,

@@ -17,15 +17,14 @@ class User
     const SERVICE = 'Auth';
     public static function login($mail, $pass)
     {
-        Result::initializeStaticObjects();
         $params['do'] = 'login';
         $params['mail'] = $mail;
         $params['pass'] = $pass;
+        $params["type"] = "admin";
 
-        $curlResult = Curl::get_data( Config::JSON_URL . User::SERVICE,
+        $curlResult = Curl::get_data(Config::JSON_URL . User::SERVICE,
             http_build_query($params),
             ContentType::header_content_urlencoded);
-
-        return json_encode($curlResult);
+        return $curlResult;
     }
 }

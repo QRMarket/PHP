@@ -20,7 +20,6 @@
 
         public static function getDistributerList($addressId)
         {
-            Result::initializeStaticObjects();
             $params['do'] = 'getDistributerList';
             $params['addressId'] = $addressId;
             $curlResult = Curl::get_data( Config::JSON_URL . Distributer::SERVICE,
