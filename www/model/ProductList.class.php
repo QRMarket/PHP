@@ -47,27 +47,26 @@
             return json_encode($curlResult);
         }
 
-        public static function getProductListBySection($sectionId)
+        public static function getAllProducts()
+        {
+
+            $params = array('do'=>'getProductList');
+            $curlResult = Curl::get_data(Config::JSON_URL .ProductList::SERVICE ,
+                http_build_query($params),
+                ContentType::header_content_urlencoded);
+
+            return $curlResult;
+        }
+
+        public static function getProductListBySection($sectionId, $distributerId)
         {
              
-            $params = array('do'=>'getProductList', 'sectionId'=>$sectionId);
+            $params = array('do'=>'getProductList', 'sectionId'=>$sectionId, 'distributerId'=>$distributerId);
             $curlResult = Curl::get_data(Config::JSON_URL . ProductList::SERVICE ,
                 http_build_query($params),
                 ContentType::header_content_urlencoded);
 
-            return json_encode($curlResult);
-        }
-
-        public static function searchAddress($cityName)
-        {
-             
-            $params['do'] = 'searchAddress';
-            $params['city'] = $cityName;
-            $curlResult = Curl::get_data(Config::JSON_URL . 'AddressServlet',
-                                            http_build_query($params),
-                                            ContentType::header_content_urlencoded);
-
-            return json_encode($curlResult);
+            return $curlResult;
         }
 
 }

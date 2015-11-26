@@ -1,11 +1,11 @@
 <?php
-/********************** PAGE DETAILS ********************/
-/* @Programmer  : baldemir
- * @Maintainer  : Guppy Org.
- * @Created     : 25/11/2015
- * @Modified    :
- * @Description : This is the API result object
- ********************************************************/
+    /********************** PAGE DETAILS ********************/
+    /* @Programmer  : baldemir
+     * @Maintainer  : Guppy Org.
+     * @Created     : 25/11/2015
+     * @Modified    :
+     * @Description : This is the API result object
+     ********************************************************/
 
     require_once './model/ClassAutoloader.class.php';
     require_once './model/GlobalConfig.class.php';
@@ -22,13 +22,13 @@
     //register_shutdown_function('shutdown');
     //\model\Controller::setPage();
 
-    require_once './controller/admin/Login.class.php';
+    require_once './controller/admin/ShowProducts.class.php';
 
     @ini_set('display_errors', 1);
 
 
 
-    echo \controller\admin\Login::index();
+    echo \controller\admin\ShowProducts::index();
 
 ?>
 
