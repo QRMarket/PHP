@@ -14,3 +14,6 @@
 1. Bazı temel olarak kullanılabilecek fonksiyonel model class ları eklendi. 
 2. 'include' kullanımına gerek kalmadı use ile import yapabilmek için ClassAutoloader.class.php dosyası eklendi. 
 3. Config.class.php altındaki ROOT_PATH i kendinize göre tanımlayınız. Gerekmedikçe bu php dosyasını commitlemeyiniz.
+4. Ana dizine direk www altına dosya atılmamalı. (sadece index.php yeterli, home.php, address.php, login.php, distributer.php ve category.php dosyaları yerine controller altına Address.class.php şeklinde dosyalar açılabilir.). 
+5. Linkten direk local.guppy.com.tr/trunk/www/?Index şeklinde çağrılabilir. Index yazdığım yere controller ın altındaki .class.php uzantılı dosyalar yazılacak. 
+6. html içerisinden formdan post yapacaksanız post un içine controller/Index.class.php şeklinde verilmelidir.

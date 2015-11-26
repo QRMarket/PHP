@@ -8,13 +8,12 @@
      * @Description : This is the API result object
      ********************************************************/
 
-    namespace model;
-    include './util/constants/ContentType.class.php';
-    use util\constants\ContentType;
-    use Result;
+namespace model;
+use util\constants\ContentType;
+use model\Result;
 
 
-    class ProductList{
+class ProductList{
 
         const SERVICE = 'ProductServlet';
 
@@ -23,7 +22,10 @@
         var $borough;
         var $locality;
 
-
+        public function __construct ()
+        {
+            parent::__construct($_REQUEST);
+        }
         public static function getProduct($id)
         {
              
@@ -36,9 +38,20 @@
             return json_encode($curlResult);
         }
 
-        public static function getProductList($distributerId)
+        public static function getProductList()
         {
              
+            $params = array('do'=>'getProductList', 'limit'=>100);
+            $curlResult = Curl::get_data(Config::JSON_URL .ProductList::SERVICE ,
+                http_build_query($params),
+                ContentType::header_content_urlencoded);
+
+            return json_encode($curlResult);
+        }
+
+        public static function getProductListByDistributer($distributerId)
+        {
+            Result::initializeStaticObjects();
             $params = array('do'=>'getProductList', 'distributerId'=>$distributerId);
             $curlResult = Curl::get_data(Config::JSON_URL .ProductList::SERVICE ,
                                             http_build_query($params),
