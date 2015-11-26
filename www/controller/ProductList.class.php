@@ -18,7 +18,7 @@ class ProductList extends Controller{
             $productList = null;
 
             $productList = \model\ProductList::getProductList();
-            die($productList) ;
+            //die( $productList) ;
             /*if (isset($_GET['marketId'])){
                 $marketId = $_GET['marketId'];
 
@@ -35,9 +35,10 @@ class ProductList extends Controller{
                 $sectionList = \model\GuppyFunctions::prepareCategoryMenu();
             }*/
 
-            $result = array('products' => $productList);
+            $result = array('products' => json_decode($productList)->content);
+            //$result = array('products' => $productList);
 
-        return $twig->render('list2.html', $result);
+        return $twig->render('client/list2.html', $result);
         
     }
 }

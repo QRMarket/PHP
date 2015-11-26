@@ -45,7 +45,6 @@ class ProductList{
             $curlResult = Curl::get_data(Config::JSON_URL .ProductList::SERVICE ,
                 http_build_query($params),
                 ContentType::header_content_urlencoded);
-
             return json_encode($curlResult);
         }
 
