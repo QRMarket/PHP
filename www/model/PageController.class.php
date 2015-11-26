@@ -2,6 +2,7 @@
 namespace model;
 use model\validate\Validate;
 use model\ErrorHandler\ErrorLog;
+use model\Config;
 abstract class PageController{    
     /**
      * api sayfası olup olmadığını get eder
@@ -19,60 +20,61 @@ abstract class PageController{
      * @return void
      */
     protected static function init($class){
+
         //echo $class;
         //die($class);
-        if($class==''){
-            $class = 'controller\Index';
-        }else{
-            $class = "controller\\".$class;
-        }
-        $checkApi = self::checApi();
-        if($checkApi){
-            $class = preg_replace('/controller/', 'mobileController', $class);
-        }
-        
-        $VALIDATE = & Validate::getInstance ();
-        #eski sistem controller php dosyasıysa include et
-        if ($VALIDATE->checkFileExtension ( $class, '.php' )) {
-            //echo $class;
-            include $class;
-        }
-        #yeni sistem controller class ise method kontrolü yap
-        else {
-            $methodName='';
+        $pageResult = PageController::getPath();
+        if($pageResult['kod']==0){
+            $class = $pageResult['runPHPFile'];
+            $checkApi = self::checApi();
             if($checkApi){
-                $arr = $_REQUEST;
-                # buradaki p mobil api proxy dosyasının kullandığı page değişkenine tekabul etmekte
-                unset($arr['p']);
-            }else{
-                $arr = $_GET;
+                $class = preg_replace('/controller/', 'mobileController', $class);
             }
-            foreach ($arr as $key=>$value){
-                if($key !='page'){
-                    $methodName = $value;
-                    break;
+
+            $VALIDATE = & Validate::getInstance ();
+            #eski sistem controller php dosyasıysa include et
+            if ($VALIDATE->checkFileExtension ( $class, '.php' )) {
+                //echo $class;
+                include $class;
+            }
+            #yeni sistem controller class ise method kontrolü yap
+            else {
+                $methodName='';
+                if($checkApi){
+                    $arr = $_REQUEST;
+                    # buradaki p mobil api proxy dosyasının kullandığı page değişkenine tekabul etmekte
+                    unset($arr['p']);
+                }else{
+                    $arr = $_GET;
                 }
-            }
-            //echo $class;
-            $OBJECT = new $class ();
-            echo $OBJECT->index();
-            if ($methodName == '') {
-                $OBJECT->index();
-            } else {
-                $method = self::getMethodName($arr,$VALIDATE,$methodName);
-        
-                if (method_exists ( $OBJECT, $method )) {
-                    $reflection = new \ReflectionMethod($OBJECT, $method);
-                    if ($reflection->isPublic()) {
-                        $OBJECT->$method ();
-                    }else{
-                        $OBJECT->index();
-                        ErrorLog::errorHandler(E_ERROR, $class.' classının '.$method.' adında ki methodu public değil!', $class, __LINE__, '',false);
+                foreach ($arr as $key=>$value){
+                    if($key !='page'){
+                        $methodName = $value;
+                        break;
                     }
+                }
+                //echo $class;
+                $OBJECT = new $class ();
+                if ($methodName == '') {
+                    echo $OBJECT->index();
                 } else {
-                    $OBJECT->index();
+                    $method = self::getMethodName($arr,$VALIDATE,$methodName);
+
+                    if (method_exists ( $OBJECT, $method )) {
+                        $reflection = new \ReflectionMethod($OBJECT, $method);
+                        if ($reflection->isPublic()) {
+                            echo $OBJECT->$method ();
+                        }else{
+                            echo $OBJECT->index();
+                            ErrorLog::errorHandler(E_ERROR, $class.' classının '.$method.' adında ki methodu public değil!', $class, __LINE__, '',false);
+                        }
+                    } else {
+                        echo $OBJECT->index();
+                    }
                 }
             }
+        }else{
+            require 'controller/404.php';
         }
     }
     /**
@@ -98,6 +100,17 @@ abstract class PageController{
             }
         }
         return $asama;
+    }
+
+    private static function getPath(){
+        $url = (string)Request::_get('page');
+        foreach(ResourceBundle::GUPPYPAGELINKS as $link){
+            if($url==$link['url']){
+                return array('kod'=>0, 'page'=>$url, 'runPHPFile'=>$link['link']);
+            }
+        }
+
+        return array('kod'=>1);
     }
     /**
      * cfg tablosundan gelen parametreleri get'e set eder

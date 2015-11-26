@@ -11,6 +11,8 @@ $CLASS =& \model\ClassAutoloader::getInstance();
 ###############################################################
 spl_autoload_register ('\model\ClassAutoloader::load');
 ###############################################################
+//print_r ($_GET);
+//print_r($_SERVER);
 //die ($_SERVER['REQUEST_URI']);
 //set_error_handler("myErrorHandler");
 //register_shutdown_function('shutdown');

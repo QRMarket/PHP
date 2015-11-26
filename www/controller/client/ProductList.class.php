@@ -1,36 +1,44 @@
 <?php
-namespace controller;
+namespace controller\client;
 use model\Config;
-error_reporting(E_ALL);
+use model\mvc\Controller;
+//use model\ProductList;
 
-class ProductList{
-    
-    public static function index(){
+//error_reporting(E_ALL);
 
-            $twig = Config::getTwig();
-            $sectionList = null;
+class ProductList extends Controller{
 
-            if (isset($_GET['marketId'])){
-                $marketId = $_GET['marketId'];
+    public function __construct(){
+        parent::__construct($_GET);
+    }
 
-                // ##########################################
-                // ##########################################
-                // -- ** --
-                // Burada market sayfası için gerekli diğer sorgular yapılacaktır
-                // - section Listesi
-                // - genel ürün listesi (çok satılan vs)
-                // - (+) diğer istekler
-                // ##########################################
-                // ##########################################
+    public function index(){
 
-                $sectionList = \model\GuppyFunctions::prepareCategoryMenu();
-            }
+        $twig = Config::getTwig();
+        $productList = null;
 
-            $result = array('sections' => $sectionList);
+        $productList = \model\ProductList::getProductList();
+        //die( $productList) ;
+        /*if (isset($_GET['marketId'])){
+            $marketId = $_GET['marketId'];
 
-        return $twig->render('home.html', $result);
-        
+            // ##########################################
+            // ##########################################
+            // -- ** --
+            // Burada market sayfası için gerekli diğer sorgular yapılacaktır
+            // - section Listesi
+            // - genel ürün listesi (çok satılan vs)
+            // - (+) diğer istekler
+            // ##########################################
+            // ##########################################
+
+            $sectionList = \model\GuppyFunctions::prepareCategoryMenu();
+        }*/
+
+        $result = array('products' => json_decode($productList)->content);
+        //$result = array('products' => $productList);
+
+        return $twig->render('client/list2.html', $result);
+
     }
 }
-?>
-<!-- - - - - - - - - - - - - - Page Wrapper - - - - - - - - - - - - - - - - -->
