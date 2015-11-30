@@ -4,25 +4,14 @@
  * Date: 23/11/15
  * Time: 14:12
  */
-/*use model\Curl;
-use model\Config;
-use model\Address;*/
-require_once 'model/ClassAutoloader.class.php';
-require_once 'model/GlobalConfig.class.php';
-require_once 'model/Config.class.php';
-require_once 'model/Functions.class.php';
-$CLASS =& \model\ClassAutoloader::getInstance();
-//require_once $CLASS->getPharFile(). 'model/smarty/Smarty.class.php';
 
-###############################################################
-spl_autoload_register ('\model\ClassAutoloader::load');
-###############################################################
+    include './model/Curl.class.php';
+    include './model/Config.class.php';
+    include './model/Address.class.php';
+//    include './model/Distributer.class.php';
 
-require_once 'model/Address.class.php';
-    //$address = new \model\Address();
-    $address = \model\Address::searchAddress($_POST['city']);
-    //die($address);
-    //$address = $address->searchAddress($_POST['city']);
+    $address = new \model\Address();
+    $address = $address->searchAddress($_POST['city']);
 
     header('Content-Type: application/json');
     echo json_encode($address);
