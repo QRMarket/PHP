@@ -30,7 +30,7 @@ final class Controller extends PageController
         // ################################################################
         //die(substr($_SERVER['REQUEST_URI'],11));
        // parent::init($_SERVER['REQUEST_URI']);
-        $substr = substr($_SERVER['REQUEST_URI'],12);
+        $substr = substr($_SERVER['REQUEST_URI'],10);
         //echo $substr;
         /*if($substr==''){
             echo $_SERVER['REQUEST_URI'];

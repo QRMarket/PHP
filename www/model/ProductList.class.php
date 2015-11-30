@@ -63,7 +63,8 @@ class ProductList{
         public static function getAllProducts()
         {
 
-            $params = array('do'=>'getProductList');
+            $params = array('do'=>'getProductList', 'limit'=>'100');
+
             $curlResult = Curl::get_data(Config::JSON_URL .ProductList::SERVICE ,
                 http_build_query($params),
                 ContentType::header_content_urlencoded);
