@@ -2,11 +2,13 @@
 namespace controller\client;
 use model\Config;
 use model\mvc\Controller;
+use model\Request;
+
 //use model\ProductList;
 
 //error_reporting(E_ALL);
 
-class ProductList extends Controller{
+class ProductDetail extends Controller{
 
     public function __construct(){
         parent::__construct($_GET);
@@ -15,10 +17,9 @@ class ProductList extends Controller{
     public function index(){
 
         $twig = Config::getTwig();
-        $productList = null;
-
-        $productList = \model\ProductList::getProductList();
-        //die( $productList) ;
+        $productId = Request::_request('productId');
+        $productDetail = \model\ProductList::getProduct($productId);
+        //die( $productDetail) ;
         /*if (isset($_GET['marketId'])){
             $marketId = $_GET['marketId'];
 
@@ -35,10 +36,10 @@ class ProductList extends Controller{
             $sectionList = \model\GuppyFunctions::prepareCategoryMenu();
         }*/
 
-        $result = array('products' => json_decode($productList)->content);
+        $result = array('productDetail' => json_decode($productDetail)->content);
         //$result = array('products' => $productList);
 
-        return $twig->render('client/list2.html', $result);
+        return $twig->render('client/product_detail2.html', $result);
 
     }
 }

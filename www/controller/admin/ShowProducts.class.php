@@ -12,15 +12,19 @@
     use model\Config;
     use model\ProductList;
     use model\Functions;
+    use model\mvc\Controller;
     error_reporting(E_ALL);
 
     /*include './model/Config.class.php';
     include './model/Dene.class.php';
     include './model/Functions.class.php';*/
 
-    class ShowProducts{
+    class ShowProducts extends Controller{
 
-        public static function index(){
+        public function __construct(){
+            parent::__construct($_GET);
+        }
+        public function index(){
 
             // -- ** -- GET Twig & city list
             $twig = Config::getTwig();
