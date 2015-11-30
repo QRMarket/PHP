@@ -28,9 +28,11 @@ final class Controller extends PageController
         // formlar için token oluşturur
         Token::createTokenSession();
         // ################################################################
-        //die(substr($_SERVER['REQUEST_URI'],11));
+        //die($_SERVER['REQUEST_URI']);
        // parent::init($_SERVER['REQUEST_URI']);
-        $substr = substr($_SERVER['REQUEST_URI'],12);
+        $substr = substr($_SERVER['REQUEST_URI'],11);
+        $arr = explode("?", $substr, 2);
+        $substr = $arr[0];
         //echo $substr;
         /*if($substr==''){
             echo $_SERVER['REQUEST_URI'];

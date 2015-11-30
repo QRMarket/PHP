@@ -13,7 +13,7 @@ use util\constants\ContentType;
 use model\Result;
 
 
-class ProductList{
+class ProductDetail{
 
         const SERVICE = 'ProductServlet';
 
@@ -22,12 +22,16 @@ class ProductList{
         var $borough;
         var $locality;
 
+        public function __construct ()
+        {
+            parent::__construct($_REQUEST);
+        }
         public static function getProduct($id)
         {
              
-            $params['do'] = 'getProduct';
-            $params['productId'] = $id;
-            $curlResult = Curl::get_data( Config::JSON_URL . ProductList::SERVICE,
+            $params['do'] = 'getAddressById';
+            $params['id'] = $id;
+            $curlResult = Curl::get_data( Config::JSON_URL . Address::SERVICE,
                                             http_build_query($params),
                                             ContentType::header_content_urlencoded);
 
@@ -58,8 +62,7 @@ class ProductList{
         public static function getAllProducts()
         {
 
-            $params = array('do'=>'getProductList', 'limit'=>'100');
-
+            $params = array('do'=>'getProductList');
             $curlResult = Curl::get_data(Config::JSON_URL .ProductList::SERVICE ,
                 http_build_query($params),
                 ContentType::header_content_urlencoded);

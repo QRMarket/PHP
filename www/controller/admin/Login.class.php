@@ -11,16 +11,20 @@
     namespace controller\admin;
     use model\Config;
     use model\User;
+    use model\mvc\Controller;
     use model\Functions;
-    error_reporting(E_ALL);
+    //error_reporting(E_ALL);
 
     /*include './model/Config.class.php';
     include './model/Dene.class.php';
     include './model/Functions.class.php';*/
 
-    class Login{
+    class Login extends Controller{
 
-        public static function index(){
+        public function __construct(){
+            parent::__construct($_GET);
+        }
+        public function index(){
 
             // -- ** -- GET Twig & city list
             $twig = Config::getTwig();
@@ -43,5 +47,3 @@
             }
         }
     }
-?>
-<!-- - - - - - - - - - - - - - Page Wrapper - - - - - - - - - - - - - - - - -->
