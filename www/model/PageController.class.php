@@ -19,10 +19,8 @@ abstract class PageController{
      * @param string $class
      * @return void
      */
-    protected static function init($class){
+    protected static function init(){
 
-        //echo $class;
-        //die($class);
         $pageResult = PageController::getPath();
         if($pageResult['kod']==0){
             $class = $pageResult['runPHPFile'];
