@@ -5,16 +5,18 @@
      * @Maintainer  : Guppy Org.
      * @Created     : 01/12/2015
      * @Modified    : 01/12/2015
-     * @Description : İlçe/Semt listesinin render eden class'tır
+     * @Description : Market Listesinin getirildiği sayfadır
      ********************************************************/
 
     namespace controller\client;
     use model\Config;
+    use model\DistributerModal;
     use model\mvc\Controller;
-    use model\RegionModal;
+    use model\Request;
+
     error_reporting(E_ALL);
 
-    class Region extends Controller{
+    class Distributer extends Controller{
 
             public function __construct(){
                 parent::__construct($_GET);
@@ -22,11 +24,9 @@
 
             public function index(){
 
-                    $twig = Config::getTwig();
+                    $distributerList = DistributerModal::getDistibuterList(Request::_get('dist'));
 
-                    $addressList = RegionModal::searchAddress('Ankara');
-
-                return $twig->render('client/region_select.html', array('addressList' => json_decode($addressList)->content));
+                return Config::getTwig()->render('client/dummy_place_select.html', array('distributerList' => json_decode($distributerList)->content));
 
             }
     }
