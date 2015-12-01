@@ -1,0 +1,76 @@
+.page-transparent{
+	background: transparent !important;
+}
+.region-description{
+	position: relative;
+	height: 200px;
+	background: transparent !important;
+}
+.parallax-window {
+    min-height: 200px;
+    background: transparent;
+}
+.region-description-text{
+	margin-top: 75px;
+	font-size: 30px;
+	text-align: center;
+	color: #FFF;
+	font-weight: 300;
+	text-shadow: 1px 1px 3px #000;
+}
+.region-description-flag:before {
+	position: absolute;
+	bottom: -30px;
+	left: 0;
+	right: 0;
+	content: "\f041";
+    font-family: FontAwesome;
+    font-size: 30px;
+    color: #fff;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    font-style: normal;
+    text-align: center;
+    border-radius: 60px;
+    background: rgba(0,0,0,.5);
+	border: 1px solid #FFF;
+	margin: 0 auto;
+}
+.region-area {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 10px 0;
+	overflow:hidden;
+}
+.vertical{
+	display: table;
+	margin-bottom: 20px;
+}
+.region-link{
+	width: 90px;
+    height: 90px;
+	padding: 5px;
+    font-size: 14px;
+    text-align: center;
+    display: table-cell;
+    overflow: hidden;
+    vertical-align:middle;
+	background-color: #fdd922;
+	transition: all .3s;
+	border-radius: 50px;
+}
+.region-link:hover {
+	color: #FFF !important;
+	background: #65D31F !important;
+	transition: all .3s;
+	opacity: 1 !important;;
+}
+.page-grocery [class*="col-"]{
+    padding-left: 1px;
+	padding-right: 1px;
+}
+.page-grocery .row {
+	margin-left: -1px;
+	margin-right: -1px;
+}
