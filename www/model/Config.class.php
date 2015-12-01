@@ -16,7 +16,7 @@ class Config implements GlobalConfig{
      * @var string
      */
     const JSON_URL = 'http://46.101.168.27:8080/QR_Market_Web/';
-    //const JSON_URL = 'http://192.168.35.123:8080/QR_Market_Web/';
+//    const JSON_URL = 'http://192.168.35.210:8080/QR_Market_Web/';
 
     public static function getTwig()
     {
