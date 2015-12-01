@@ -5,7 +5,7 @@
      * @Maintainer  : Guppy Org.
      * @Created     : 01/12/2015
      * @Modified    : 01/12/2015
-     * @Description :
+     * @Description : İlçe/Semt listesinin render eden class'tır
      ********************************************************/
 
     namespace controller\client;

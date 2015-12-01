@@ -5,7 +5,7 @@
      * @Maintainer  : Guppy Org.
      * @Created     : 01/12/2015
      * @Modified    : 01/12/2015
-     * @Description :
+     * @Description : Market Listesinin getirildiği sayfadır
      ********************************************************/
 
     namespace controller\client;
