@@ -38,6 +38,17 @@ class ProductDetail{
             return json_encode($curlResult);
         }
 
+         public static function addProduct($params)
+         {
+
+             $params['do'] = 'addProduct';
+             $curlResult = Curl::get_data( Config::JSON_URL . self::SERVICE,
+                 $params,
+                 ContentType::header_content_multipart);
+
+             return $curlResult;
+         }
+
         public static function getProductList()
         {
              

@@ -12,6 +12,7 @@ class ContentType
 {
 
     const header_content_urlencoded = 'Content-Type: application/x-www-form-urlencoded';
+    const header_content_multipart = 'Content-Type: multipart/form-data';
 
 }
 

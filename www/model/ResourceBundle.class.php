@@ -31,7 +31,9 @@ final class ResourceBundle{
                         array('url'=>'home2', 'link'=>'controller\\client\\Home'),
                         array('url'=>'productlist2', 'link'=>'controller\\client\\ProductList'),
                         array('url'=>'productdetail', 'link'=>'controller\\client\\ProductDetail'),
-                        array('url'=>'region', 'link'=>'controller\\client\\Region')
+                        array('url'=>'region', 'link'=>'controller\\client\\Region'),
+                        array('url'=>'addproduct', 'link'=>'controller\\admin\\AddProduct'),
+                        array('url'=>'showproduct', 'link'=>'controller\\admin\\ShowProduct')
                     );
    /* define( 'ResultGuppy001Code'    , 'GUPPY.001');
     define( 'ResultGuppy010Code'    , 'result.guppy.010');
