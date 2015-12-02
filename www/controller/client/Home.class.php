@@ -1,39 +1,34 @@
 <?php
-namespace controller;
+/********************** PAGE DETAILS ********************/
+/* @Programmer : Guppy Org.
+ * @Developer :Orxan Alirzayev
+ * @Maintainer  : Guppy Org.
+ * @Created     : 01/12/2015
+ * @Modified    : 02/12/2015
+ * @Description : Market sayfasını render eden class'tır
+ ********************************************************/
+namespace controller\client;
 use model\Config;
-use model\Functions;
+use model\mvc\Controller;
+use model\Category;
 error_reporting(E_ALL);
 
-//include './model/Config.class.php';
-//include './model/Functions.class.php';
 
-class Home{
+class Home extends Controller{
+
+    public function __construct(){
+        parent::__construct($_GET);
+    }
     
-    public static function index(){
 
-            $twig = Config::getTwig();
-            $sectionList = null;
+    public function index(){
 
-            if (isset($_GET['marketId'])){
-                $marketId = $_GET['marketId'];
+        $twig = Config::getTwig();
 
-                // ##########################################
-                // ##########################################
-                // -- ** --
-                // Burada market sayfası için gerekli diğer sorgular yapılacaktır
-                // - section Listesi
-                // - genel ürün listesi (çok satılan vs)
-                // - (+) diğer istekler
-                // ##########################################
-                // ##########################################
+        $addressList = Category::getCategoryList();
 
-                $sectionList = \model\GuppyFunctions::prepareCategoryMenu();
-            }
+        return $twig->render('home.html', array('addressList' => json_decode($addressList)->content));
 
-            $result = array('sections' => $sectionList);
-
-        return $twig->render('home.html', $result);
-        
     }
 }
 ?>
