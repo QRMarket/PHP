@@ -24,7 +24,7 @@ class Order{
     public static function getOrders()
     {
         $params['do'] = 'getOrderList';
-        $params['userId'] = '123469';
+        $params['userId'] = '123461';
         $curlResult = Curl::get_data( Config::JSON_URL . self::SERVICE,
             http_build_query($params),
             ContentType::header_content_urlencoded);

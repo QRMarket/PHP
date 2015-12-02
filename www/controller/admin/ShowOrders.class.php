@@ -32,7 +32,7 @@ class ShowOrders extends Controller{
         $loginResult = Order::getOrders();
         //die($_SERVER['REQUEST_URI']);
         // -- ** -- Check $cityList content is exist with isset method
-        $result = array('products' => $loginResult->content);
+        $result = array('orders' => $loginResult->content);
 
         // -- ** -- Render result with twig
         if($loginResult->isSuccess()) {
