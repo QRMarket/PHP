@@ -25,9 +25,9 @@ class Home extends Controller{
 
         $twig = Config::getTwig();
 
-        $addressList = Category::getCategoryList();
+        $categoryList = Category::getCategoryList();
 
-        return $twig->render('home.html', array('addressList' => json_decode($addressList)->content));
+        return $twig->render('home.html', array('categoryList' => json_decode($categoryList)->content));
 
     }
 }
