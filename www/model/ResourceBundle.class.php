@@ -24,6 +24,8 @@ final class ResourceBundle{
     const ResultGuppy531Status = 'FAILURE_PERMISSION';
 
     const GUPPYPAGELINKS = array(
+                        array('url'=>'showorder', 'link'=>'controller\\admin\\ShowOrder'),
+                        array('url'=>'admin', 'link'=>'controller\\admin\\Index'),
                         array('url'=>'login2', 'link'=>'controller\\admin\\Login'),
                         array('url'=>'showproducts', 'link'=>'controller\\admin\\ShowProducts'),
                         array('url'=>'', 'link'=>'controller\\Index'),
@@ -36,7 +38,7 @@ final class ResourceBundle{
                         array('url'=>'showproduct', 'link'=>'controller\\admin\\ShowProduct'),
                         array('url'=>'addproduct', 'link'=>'controller\\admin\\AddProduct'),
                         array('url'=>'showorders', 'link'=>'controller\\admin\\ShowOrders'),
-                        array('url'=>'home', 'link'=>'controller\\client\\Home')
+                        array('url'=>'home', 'link'=>'controller\\client\\Home'),
                     );
    /* define( 'ResultGuppy001Code'    , 'GUPPY.001');
     define( 'ResultGuppy010Code'    , 'result.guppy.010');

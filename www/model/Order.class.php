@@ -32,4 +32,15 @@ class Order{
         return $curlResult;
     }
 
+    public static function getOrder($id)
+    {
+        $params['do'] = 'getOrder';
+        $params['orderId'] = $id;
+        $curlResult = Curl::get_data( Config::JSON_URL . self::SERVICE,
+            http_build_query($params),
+            ContentType::header_content_urlencoded);
+
+        return $curlResult;
+    }
+
 }
