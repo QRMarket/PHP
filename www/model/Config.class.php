@@ -10,7 +10,7 @@
          * @var string
          */
         //const ROOT_PATH = '/Users/kemalcagri/Desktop/Guppy/PHP/trunk/www';
-        const ROOT_PATH = '/var/www/trunk/www';
+        const ROOT_PATH = '/var/www/res/www';
         /**
          * json datalarının döndüğü url
          *
