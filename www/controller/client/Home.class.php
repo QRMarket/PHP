@@ -13,6 +13,8 @@ use model\mvc\Controller;
 use model\Category;
 use model\ResourceBundle;
 use model\Result;
+use model\Request;
+
 
 error_reporting(E_ALL);
 
@@ -31,13 +33,17 @@ class Home extends Controller
 
         $twig = Config::getTwig();
 
+        //-- Get Distrubuter  -- //
+        $distrName=Request::_get('id');
+
+
         $categoryList = Category::getCategoryTree()->content;
 
         //-- Get Main Categories -- //
         $maincategoryList = $categoryList->childList;
 
         //-- Define Rendered Result -- //
-        $result = array('categoryList' => $maincategoryList);
+        $result = array('categoryList' => $maincategoryList,'distrName'=>$distrName);
 
         //-- Render Result -- //
         return $twig->render('home.html', $result);
