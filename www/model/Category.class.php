@@ -26,7 +26,7 @@ class Category{
             http_build_query($params),
             ContentType::header_content_urlencoded);
 
-        return json_encode($curlResult);
+        return $curlResult;
     }
 
 
@@ -40,7 +40,7 @@ class Category{
             http_build_query($params),
             ContentType::header_content_urlencoded);
 
-        return json_encode($curlResult);
+        return $curlResult;
     }
 
 
@@ -53,7 +53,7 @@ class Category{
             http_build_query($params),
             ContentType::header_content_urlencoded);
 
-        return json_encode($curlResult);
+        return $curlResult;
     }
 
 

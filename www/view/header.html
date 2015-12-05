@@ -96,19 +96,32 @@
 						<form action="cat" method="POST" id="search_mini_form" name="Categories">
 							<select name="category_id" class="cate-dropdown hidden-xs">
 								<option value="0">All Categories</option>
-								<option value="36">Camera</option>
-								<option value="37">Electronics</option>
-								<option value="42">&nbsp;&nbsp;&nbsp;Cell Phones</option>
-								<option value="43">&nbsp;&nbsp;&nbsp;Cameras</option>
-								<option value="44">&nbsp;&nbsp;&nbsp;Laptops</option>
-								<option value="45">&nbsp;&nbsp;&nbsp;Hard Drives</option>
-								<option value="46">&nbsp;&nbsp;&nbsp;Monitors</option>
-								<option value="47">&nbsp;&nbsp;&nbsp;Mouse</option>
-								<option value="48">&nbsp;&nbsp;&nbsp;Digital Cameras</option>
-								<option value="38">Desktops</option>
-								<option value="39">Computer Parts</option>
-								<option value="40">Televisions</option>
-								<option value="41">Featured</option>
+
+
+
+
+								<!------------------------** MAIN CATEFORY SEARCH ITEM HERE ** -------------------------->
+								{% for section in categoryList %}
+								<option value="36">{{ section.sec_name }}</option>
+
+									{% if section.childList is defined %}
+
+									<!------------------------** SUB CATEFORY SEARCH ITEM HERE ** -------------------------->
+										{% for subItem in section.childList %}
+										<option value="42">&nbsp;&nbsp;&nbsp;{{ subItem.sec_name }}</option>
+										{% endfor %}
+									<!------------------------** END SUB CATEFORY SEARCH ITEM HERE ** -------------------------->
+
+
+								{% endif %}
+
+								{% endfor %}
+								<!------------------------** END MAIN CATEFORY SEARCH ITEM HERE ** -------------------------->
+
+
+								
+
+
 							</select>
 							<input type="text" placeholder="Search here..." value="" maxlength="70" class="" name="search" id="search">
 							<button id="submit-button" class="search-btn-bg"><span>Search</span></button>
@@ -348,117 +361,56 @@
 						</ul>
 
 					</li>
-					
-					<!--Categories Here -->
+
+
+
+
+
+					<!------------------------** MMAIN CATEFORY MENU ITEM HERE ** -------------------------->
 					{% for section in categoryList %}
 
 					<li class="level0"><a class="level-top" href="grid.html"><span>{{ section.sec_name }}</span></a>
+
+
+
+
+
+						<!------------------------** SUB CATEFORY MENU ITEM HERE ** -------------------------->
+
+						{% if section.childList is defined %}
+
 						<div class="level0-wrapper dropdown-6col">
+
+
 							<div class="level0-wrapper2">
 								<div class="nav-block nav-block-center">
 
-									<!--mega menu-->
 
+
+									<!------------------------** SUB CATEFORY MENU ITEM CHILD HERE ** -------------------------->
 									<ul class="level0">
-										<li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Precious Jewellery</span></a>
+										{% for subItem in section.childList %}
+										<li class="level3 nav-6- parent item"> <a href="grid.html"><span>{{ subItem.sec_name }}</span></a>
 											<!--sub sub category-->
 
 											<ul class="level1">
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Gitanjali</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Tara</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Orra</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Ahilya</span></a> </li>
-												<!--level2 nav-6-1-1-->
+												{% for subItemChild in subItem.childList %}
+												<li class="level1 nav-6-1-1"> <a href="grid.html"><span>{{ subItemChild.sec_name }}</span></a> </li>
+												{% endfor %}
+
+
 											</ul>
 											<!--level1-->
 
 											<!--sub sub category-->
 
 										</li>
-										<!--level3 nav-6-1 parent item-->
+										{% endfor %}
+										<!------------------------** END CATEFORY MENU ITEM CHILD HERE ** -------------------------->
 
-										<li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Fashion Jewellery</span></a>
-											<!--sub sub category-->
 
-											<ul class="level1">
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Earrings</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Rings</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Bangles &amp; Bracelets</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Pendants</span></a> </li>
-												<!--level2 nav-6-1-1-->
-											</ul>
-											<!--level1-->
 
-											<!--sub sub category-->
 
-										</li>
-										<!--level3 nav-6-1 parent item-->
-
-										<li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Mens Jewellery</span></a>
-											<!--sub sub category-->
-
-											<ul class="level1">
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Neck Wear</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Cufflinks</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Wrist Wear</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Rings</span></a> </li>
-												<!--level2 nav-6-1-1-->
-											</ul>
-											<!--level1-->
-
-											<!--sub sub category-->
-
-										</li>
-										<!--level3 nav-6-1 parent item-->
-
-										<li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Designer</span></a>
-											<!--sub sub category-->
-
-											<ul class="level1">
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Bbling</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Ciana</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Bansri</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Arsya</span></a> </li>
-												<!--level2 nav-6-1-1-->
-											</ul>
-											<!--level1-->
-
-											<!--sub sub category-->
-
-										</li>
-										<!--level3 nav-6-1 parent item-->
-
-										<li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Platinum</span></a>
-											<!--sub sub category-->
-
-											<ul class="level1">
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Earrings</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Rings</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Bangles &amp; Bracelets</span></a> </li>
-												<!--level2 nav-6-1-1-->
-												<li class="level2 nav-6-1-1"> <a href="grid.html"><span>Pendants</span></a> </li>
-												<!--level2 nav-6-1-1-->
-											</ul>
-											<!--level1-->
-
-											<!--sub sub category-->
-
-										</li>
-										<!--level3 nav-6-1 parent item-->
 
 									</ul>
 									<!--level0-->
@@ -474,10 +426,16 @@
 
 						<!--mega menu-->
 
+						{% endif %}
+
+						<!------------------------** END SUB CATEFORY MENU ITEM HERE ** -------------------------->
+
+
+
 					</li>
 
 					{% endfor %}
-					<!--End Categories Here -->
+					<!------------------------** END MAIN CATEFORY MENU ITEM HERE ** -------------------------->
 
 
 

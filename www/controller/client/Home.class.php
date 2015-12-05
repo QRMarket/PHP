@@ -11,25 +11,41 @@ namespace controller\client;
 use model\Config;
 use model\mvc\Controller;
 use model\Category;
+use model\ResourceBundle;
+use model\Result;
+
 error_reporting(E_ALL);
 
 
-class Home extends Controller{
+class Home extends Controller
+{
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct($_GET);
     }
-    
 
-    public function index(){
+
+    public function index()
+    {
 
         $twig = Config::getTwig();
 
-        $categoryList = Category::getCategoryList();
+        $categoryList = Category::getCategoryTree()->content;
 
-        return $twig->render('home.html', array('categoryList' => json_decode($categoryList)->content));
+        //-- Get Main Categories -- //
+        $maincategoryList = $categoryList->childList;
+
+        //-- Define Rendered Result -- //
+        $result = array('categoryList' => $maincategoryList);
+
+        //-- Render Result -- //
+        return $twig->render('home.html', $result);
 
     }
+
+
 }
+
 ?>
 <!-- - - - - - - - - - - - - - Page Wrapper - - - - - - - - - - - - - - - - -->
