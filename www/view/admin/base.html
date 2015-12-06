@@ -212,8 +212,19 @@
     <div class="control-sidebar-bg"></div>
 </div><!-- ./wrapper -->
 
+
 <!-- jQuery 2.1.4 -->
 <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script type="text/javascript">
+    var menu_items = $("#sidebar_menu").find("a");
+    menu_items.each(function(index){
+        if($(this).attr("href")===window.location.pathname)
+        {
+            $(this).parent().addClass("active");
+        }
+    })
+
+</script>
 <!-- Bootstrap 3.3.5 -->
 <script src="../../bootstrap/js/bootstrap.min.js"></script>
 <!-- DataTables -->
