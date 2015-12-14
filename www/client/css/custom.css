@@ -1,3 +1,9 @@
+button{
+	outline: 0;
+}
+input[type="radio"]{
+	margin-left: 1px !important;
+}
 .page-transparent{
 	background: transparent !important;
 }
@@ -32,6 +38,8 @@
     font-style: normal;
     text-align: center;
     border-radius: 60px;
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
     background: rgba(0,0,0,.5);
 	border: 1px solid #FFF;
 	margin: 0 auto;
@@ -48,6 +56,8 @@
     line-height: 60px;
     text-align: center;
     border-radius: 60px;
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
     background: url("../images/grocery-i-icon.png") no-repeat center center rgba(0,0,0,.5);
 	border: 1px solid #FFF;
 	margin: 0 auto;
@@ -251,7 +261,104 @@
 .grid-view-item .overlay-grocery-item a:hover{
 	color: #000;
 }
+/*index*/
+.block{
+	border: 1px solid #e0e0e0;
+	border-top: solid 3px #4ca811;
+	background: #fafafa;
+}
+.block .block-title{
+	border-top: 0;
+	border-bottom: 1px #e0e0e0 solid;
+    background: #eee;
+}
+.block .block-content{
+	margin-bottom: 5px !important;
+}
+.block-viewed .block-content {
+    background-color: transparent;
+}
+#nav > li > a, #nav ul.level0 > li > a{
+	text-transform: none;
+}
+.cat-img-title.cat-bg .cat-heading, .cat-img-title.cat-bg p{
+    color: #FFFFFF;
+    background: rgba(0,0,0,0.8);
+    padding: 5px;
+	margin-bottom: 1px;
+}
+.level0 a, .level1 a{
+	position: relative;
+}
+/*
+#nav ul.level1 > li a {
+	border-bottom: 1px solid transparent;
+}
+#nav ul.level1 > li a:hover {
+	border-bottom: 1px solid #f0f0f0;
+}
+*/
 
+.category-label-hot{
+	position: absolute !important;
+	right: 1px;
+	top: 1px;
+	display: block;
+	width: 28px;
+	height: 14px;
+	padding: 3px 2px;
+	margin: 0;
+	font-size: 8px;
+	font-weight: bold !important;
+	font-family: "Open Sans", sans-serif;
+	color: #FFF;
+	text-align: center;
+	line-height: 1 !important;
+	letter-spacing: normal !important;
+	background: #E93A3A;
+    border-radius: 60px;
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+}
+#nav ul.level1 > li a:hover .category-label-hot{
+	background: #4ca811;
+}
+.product-list-tabs {
+	padding: 0px;
+    background-color: #FFFFFF;
+	margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+.product-list-tabs .product-tabs a{
+	text-transform: none;
+	width: 130px;
+	text-align: center;
+}
+
+.product-list-tabs .toolbar{
+	border-top: 3px solid #e5e5e5;
+}
+.product-list-tabs .toolbar .pager{
+	float: none;
+	width: 100%;
+	padding: 0 5px;
+}
+.nav-tabs > li.active > a, .product-list-tabs .nav-tabs > li.active > a:hover, .product-list-tabs .nav-tabs > li.active > a:focus{
+	height: 42px;
+}
+.product-tabs {
+	border-bottom-color: #4CA811;
+}
+.product-tabs a{
+	height: 39px;
+	background: #eee;
+}
+.product-list-tabs .nav-tabs.product-tabs > li > a, .product-list-tabs .nav-tabs.product-tabs > li > a:hover{
+	margin-right: 3px;
+	padding: 12px 5px;
+}
 
 
 
@@ -275,5 +382,43 @@
 		padding-left: 10px;
 		padding-right: 10px;
 	}
+	.product-list-tabs{
+		overflow: visible;
+	}
+	.product-list-tabs .nav-tabs>li{
+		display: block;
+		float: none !important;
+	}
+	.product-list-tabs .product-tabs{
+		height: auto;
+		border-left: 3px solid #4CA811;
+		border-right: 3px solid #4CA811;
+		border-top: 3px solid #4CA811;
+	}
+	.product-tabs a{
+		width: 100%;
+	}
+	.product-list-tabs .nav-tabs.product-tabs > li > a, .product-list-tabs .nav-tabs.product-tabs > li > a:hover{
+		margin-right: 0px;
+		width: 100%;
+	}
+	.product-list-tabs.nav-tabs > li.active > a:hover, .product-list-tabs .nav-tabs > li.active > a:focus{
+		border-bottom: 3px solid #ddd;
+	}
+	.nav-tabs.product-tabs > li > a {
+		border-bottom: 3px #ddd solid;
+	}
 
+}
+@media only screen and (max-width: 979px) {
+	.product-list-tabs .product-tabs a{
+		font-size: 11px;
+		width: 100px;
+	}
+
+}
+@media only screen and (max-width: 767px) and (min-width: 480px){
+	.product-list-tabs .product-tabs li:last-child {
+		display: block;
+	}
 }

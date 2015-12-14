@@ -119,7 +119,7 @@ jQuery(document).ready(function() {
         }), 
 		/* category-desc-slider */
 		jQuery("#category-desc-slider .slider-items").owlCarousel({
-            autoplay: !0,
+            //autoplay: !0,
             items: 1,
             itemsDesktop: [1024, 1],
             itemsDesktopSmall: [900, 1],
@@ -128,7 +128,10 @@ jQuery(document).ready(function() {
             navigation: !0,
             navigationText: ['<a class="flex-prev"></a>', '<a class="flex-next"></a>'],
             slideSpeed: 500,
-            pagination: !1
+			autoPlay: 4000,
+			stopOnHover : true,
+			paginationNumbers: true,
+            //pagination: !1
         }), 
 		/* more-views-slider */
 		jQuery("#more-views-slider .slider-items").owlCarousel({
